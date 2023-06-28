@@ -1,0 +1,31 @@
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px; 
+}
+
+.scroll{
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    height: 720px;
+}
+.item{
+    position: relative;
+    width: 272px;
+    height: 208px;
+}
+.item:nth-child(odd){
+    margin-right: 24px;
+}
+.itemImg{
+    width: 240px;
+    height: 120px;
+    margin: 0 auto 4px;
+}
+.itemPrice{
+    display: flex;
+    justify-content: center;
+}
+.itemName{
+    text-align: center;
+}
