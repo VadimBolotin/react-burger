@@ -8,20 +8,16 @@ import data from '../../utils/data';
 
 
 const BurgerIngredients = () => {
-    const [ingridient, setIngridient] = useState({})
-    const [isIngridientsViews, setIsIngridientsViews] = useState(false);
-    // console.log(isIngridientsViews) 
-    
+    const [ingredient, setIngredient] = useState({})
+    const [isIngredientsViews, setIsIngredientsViews] = useState(false);
 
-    // const ingrid = [...data];
     const buns = data.filter((item) => item.type === 'bun');
     const sauce = data.filter((item) => item.type === 'sauce');
     const main = data.filter((item) => item.type === 'main');
-    // console.log(isIngridientsViews)
-    // console.log(ingridient) 
+    
     const onSubmit = (data) => {  
-        setIsIngridientsViews(isIngridientsViews === false ? true : false)   
-        setIngridient(
+        setIsIngredientsViews(isIngredientsViews === false ? true : false)   
+        setIngredient(
             { 
                 image_large: data.image_large,
                 name: data.name,
@@ -31,14 +27,14 @@ const BurgerIngredients = () => {
                 carbohydrates: data.carbohydrates
             }
         )
-        console.log(isIngridientsViews)
-        console.log(ingridient)   
+        console.log(isIngredientsViews)
+        console.log(ingredient)   
     }
     
 
     const onClose = () => {
-        setIsIngridientsViews(isIngridientsViews === false ? true : false) 
-        setIngridient({})
+        setIsIngredientsViews(isIngredientsViews === false ? true : false) 
+        setIngredient({})
     }
 
 
@@ -83,9 +79,9 @@ const BurgerIngredients = () => {
                 
             </div>
             {
-                isIngridientsViews && (
+                isIngredientsViews && (
                     <Modal headerText={"Детали ингридиента"} onClose={onClose}>
-                        <IngredientDetails state={ingridient}/>
+                        <IngredientDetails state={ingredient}/>
                     </Modal>
                 )
             }
