@@ -27,7 +27,6 @@ const BurgerConstructor = () => {
                         <p className='text text_type_digits-medium pr-2'>610</p>
                         <CurrencyIcon type="primary" />
                     </div>
-                    {/* <Price  elClass={'text text_type_digits-medium'}/> */}
                     <div className='ml-10'>
                         <Button htmlType="button" type="primary" size="medium" onClick={onSubmit}>
                             Оформить заказ

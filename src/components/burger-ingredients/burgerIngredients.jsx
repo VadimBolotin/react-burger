@@ -51,7 +51,6 @@ const BurgerIngredients = () => {
                     </p>
                 </div> 
                 <div className={'box mt-6 mb-10 ml-4'}>
-                    {/* <Product data = {buns} onClick={(index) => onSubmit(buns, index)}/> */}
                     { buns.map((data, index)=>(                    
                         <Product onClick={() => onSubmit(data)} name={data.name} count={data.count} id={data._id} image_mobile={data.image_mobile} price={data.price} type={data.type} image={data.image} key={data._id} className={'elemen'}/>                     
                     ))}

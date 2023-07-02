@@ -5,12 +5,9 @@ import PropTypes from 'prop-types';
 
 const ProductSmall = (props) => {
     const data = props.tovar;
-    // console.log(data);
 
     const buns = data.filter((item) => item.type === 'bun');
-    // console.log(buns)
     const mains = data.filter((item) => item.type !== 'bun');
-    // console.log(mains)
 
     return (
         <div>
