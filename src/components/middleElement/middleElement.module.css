@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .block {
     display: flex;
     justify-content: space-between;
@@ -19,25 +18,3 @@
 .min {
     min-width: 182px;
 }
-=======
-.block {
-    display: flex;
-    justify-content: space-between;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.item {
-    display: flex;
-    justify-content: space-between;
-    background: url(../../images/ingredient_m.png) no-repeat 100%;
-    width: 536px;
-}
-.min {
-    min-width: 182px;
-}
->>>>>>> 7e17f8c (проверка)
