@@ -1,19 +1,21 @@
 import { useState } from "react";
+import { useMemo } from "react";
 import style from './burgerIngredients.modal.css';
 import IngredientDetails from '../ingredientDetails/ingredientDetails'
 import Modal from "../modal/modal";
 import TabElements from "../TabElements/TabElements";
 import Product from "../product/product";
-import data from '../../utils/data';
+// import data from '../../utils/data';
 
 
-const BurgerIngredients = () => {
+const BurgerIngredients = (props) => {
     const [ingredient, setIngredient] = useState({})
     const [isIngredientsViews, setIsIngredientsViews] = useState(false);
 
-    const buns = data.filter((item) => item.type === 'bun');
-    const sauce = data.filter((item) => item.type === 'sauce');
-    const main = data.filter((item) => item.type === 'main');
+    const data = props.data;
+    const buns = useMemo(() => data.filter((item) => item.type === 'bun'), [data]);
+    const mains = useMemo(() => data.filter((item) => item.type === 'main'), [data]);
+    const sauces = useMemo(() => data.filter((item) => item.type === 'sauce'), [data]);
     
     const onSubmit = (data) => {  
         setIsIngredientsViews(isIngredientsViews === false ? true : false)   
@@ -61,7 +63,7 @@ const BurgerIngredients = () => {
                     </p>
                 </div> 
                 <div className={'box mt-6 mb-10 ml-4'}>
-                    { sauce.map((data, index)=>(                    
+                    { sauces.map((data, index)=>(                    
                         <Product onClick={() => onSubmit(data)} name={data.name} count={data.count} id={data._id} image_mobile={data.image_mobile} price={data.price} type={data.type} image={data.image} key={data._id}/>                     
                     ))}
                 </div> 
@@ -71,7 +73,7 @@ const BurgerIngredients = () => {
                     </p>
                 </div> 
                 <div className={'box mt-6 mb-10 ml-4'}>
-                    { main.map((data, index)=>(                    
+                    { mains.map((data, index)=>(                    
                         <Product onClick={() => onSubmit(data)} name={data.name} count={data.count} id={data._id} image_mobile={data.image_mobile} price={data.price} type={data.type} image={data.image} key={data._id}/>                     
                     ))}
                 </div>
