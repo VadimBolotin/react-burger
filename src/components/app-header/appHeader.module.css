@@ -1,0 +1,25 @@
+.header {
+    display: flex; 
+    justify-content: center; 
+    background: #1C1C21;
+}
+.header__box{
+    display: flex;
+    margin-right: 112px;
+}
+.item {
+    display: flex; 
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+}
+.logo {
+    display: flex;
+}
+.profile {
+    display: flex; 
+    align-items: center; 
+    margin-left: 289px;
+    color: #fff;
+    text-decoration: none;
+}
