@@ -5,7 +5,6 @@ import MiddleElement from '../middleElement/middleElement';
 import PropTypes from 'prop-types';
 
 const ConstructorElement = (props) => {
-    // console.log(props);
     return(
         <div className={style.container}>
             {props.type === 'bun' && props.position === 'top'

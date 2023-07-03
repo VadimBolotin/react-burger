@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* .detail {
     display: flex;
     justify-content: center;
@@ -31,4 +32,39 @@
 /* .center{
     display: flex;
     justify-content: center;
+=======
+/* .detail {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}  */
+.container{
+    display: flex;
+    justify-content: center;
+} 
+.block{
+    background: #1C1C21;
+    width: 720px;
+    /* height: 539px; */
+    display: block;
+    position: absolute;
+    top: 20%;    
+    z-index: 100;
+    border-radius: 5%;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.close{
+    position: absolute;
+    top: 60px;
+    right: 40px;
+    cursor: pointer;
+}
+
+/* .center{
+    display: flex;
+    justify-content: center;
+>>>>>>> 7e17f8c (проверка)
 } */
