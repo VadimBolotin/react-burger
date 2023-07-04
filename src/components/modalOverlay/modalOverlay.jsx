@@ -5,11 +5,8 @@ import PropTypes from 'prop-types';
 const ModalOverlay = (props) => {
     
     return (
-        <>
             <div className={styles.block} onClick={props.handleCloseModal}>           
             </div>
-            
-         </>       
     )
 }
 

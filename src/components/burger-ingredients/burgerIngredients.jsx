@@ -1,27 +1,26 @@
 import { useState } from "react";
+import { useMemo } from "react";
 import style from './burgerIngredients.modal.css';
 import IngredientDetails from '../ingredientDetails/ingredientDetails'
 import Modal from "../modal/modal";
 import TabElements from "../TabElements/TabElements";
 import Product from "../product/product";
-import data from '../../utils/data';
+import PropTypes from 'prop-types';
+import { menuItemPropTypes } from '../../utils/contants';
 
 
-const BurgerIngredients = () => {
-    const [ingridient, setIngridient] = useState({})
-    const [isIngridientsViews, setIsIngridientsViews] = useState(false);
-    // console.log(isIngridientsViews) 
+const BurgerIngredients = (props) => {
+    const [ingredient, setIngredient] = useState({})
+    const [isIngredientsViews, setIsIngredientsViews] = useState(false);
+
+    const data = props.data;
+    const buns = useMemo(() => data.filter((item) => item.type === 'bun'), [data]);
+    const mains = useMemo(() => data.filter((item) => item.type === 'main'), [data]);
+    const sauces = useMemo(() => data.filter((item) => item.type === 'sauce'), [data]);
     
-
-    // const ingrid = [...data];
-    const buns = data.filter((item) => item.type === 'bun');
-    const sauce = data.filter((item) => item.type === 'sauce');
-    const main = data.filter((item) => item.type === 'main');
-    // console.log(isIngridientsViews)
-    // console.log(ingridient) 
     const onSubmit = (data) => {  
-        setIsIngridientsViews(isIngridientsViews === false ? true : false)   
-        setIngridient(
+        setIsIngredientsViews(isIngredientsViews === false ? true : false)   
+        setIngredient(
             { 
                 image_large: data.image_large,
                 name: data.name,
@@ -31,14 +30,12 @@ const BurgerIngredients = () => {
                 carbohydrates: data.carbohydrates
             }
         )
-        console.log(isIngridientsViews)
-        console.log(ingridient)   
     }
     
 
     const onClose = () => {
-        setIsIngridientsViews(isIngridientsViews === false ? true : false) 
-        setIngridient({})
+        setIsIngredientsViews(isIngredientsViews === false ? true : false) 
+        setIngredient({})
     }
 
 
@@ -55,7 +52,6 @@ const BurgerIngredients = () => {
                     </p>
                 </div> 
                 <div className={'box mt-6 mb-10 ml-4'}>
-                    {/* <Product data = {buns} onClick={(index) => onSubmit(buns, index)}/> */}
                     { buns.map((data, index)=>(                    
                         <Product onClick={() => onSubmit(data)} name={data.name} count={data.count} id={data._id} image_mobile={data.image_mobile} price={data.price} type={data.type} image={data.image} key={data._id} className={'elemen'}/>                     
                     ))}
@@ -66,7 +62,7 @@ const BurgerIngredients = () => {
                     </p>
                 </div> 
                 <div className={'box mt-6 mb-10 ml-4'}>
-                    { sauce.map((data, index)=>(                    
+                    { sauces.map((data, index)=>(                    
                         <Product onClick={() => onSubmit(data)} name={data.name} count={data.count} id={data._id} image_mobile={data.image_mobile} price={data.price} type={data.type} image={data.image} key={data._id}/>                     
                     ))}
                 </div> 
@@ -76,16 +72,16 @@ const BurgerIngredients = () => {
                     </p>
                 </div> 
                 <div className={'box mt-6 mb-10 ml-4'}>
-                    { main.map((data, index)=>(                    
+                    { mains.map((data, index)=>(                    
                         <Product onClick={() => onSubmit(data)} name={data.name} count={data.count} id={data._id} image_mobile={data.image_mobile} price={data.price} type={data.type} image={data.image} key={data._id}/>                     
                     ))}
                 </div>
                 
             </div>
             {
-                isIngridientsViews && (
+                isIngredientsViews && (
                     <Modal headerText={"Детали ингридиента"} onClose={onClose}>
-                        <IngredientDetails state={ingridient}/>
+                        <IngredientDetails state={ingredient}/>
                     </Modal>
                 )
             }
@@ -94,5 +90,9 @@ const BurgerIngredients = () => {
         
     )
 }
+
+BurgerIngredients.propTypes = {
+    data: PropTypes.arrayOf(menuItemPropTypes),
+};
 
 export default BurgerIngredients;
