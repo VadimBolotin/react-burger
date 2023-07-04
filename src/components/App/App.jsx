@@ -4,6 +4,7 @@ import style from './App.module.css';
 import AppHeader from '../app-header/appHeader';
 import BurgerIngredients from '../burger-ingredients/burgerIngredients';
 import BurgerConstructor from '../burger-constructor/burgerConstructor';
+import { menuItemPropTypes } from '../../utils/contants';
 
 function App() {
 
@@ -42,5 +43,8 @@ function App() {
   )
 }
 
+App.propTypes = {
+  productData: menuItemPropTypes
+};
 
 export default App;

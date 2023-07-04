@@ -6,6 +6,8 @@ import { Button } from '@ya.praktikum/react-developer-burger-ui-components';
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import ProductSmall from "../productSmall/productSmall";
 import { useState } from "react";
+import PropTypes from 'prop-types';
+import { menuItemPropTypes } from '../../utils/contants';
 
 const BurgerConstructor = (props) => {
     const [isOrderSuccess, setIsOrderSuccess] = useState(false);
@@ -42,4 +44,7 @@ const BurgerConstructor = (props) => {
         </>
     )
 }
+BurgerConstructor.propTypes = {
+    data: PropTypes.arrayOf(menuItemPropTypes)
+};
 export default BurgerConstructor;

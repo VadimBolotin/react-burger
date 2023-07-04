@@ -5,7 +5,8 @@ import IngredientDetails from '../ingredientDetails/ingredientDetails'
 import Modal from "../modal/modal";
 import TabElements from "../TabElements/TabElements";
 import Product from "../product/product";
-// import data from '../../utils/data';
+import PropTypes from 'prop-types';
+import { menuItemPropTypes } from '../../utils/contants';
 
 
 const BurgerIngredients = (props) => {
@@ -29,8 +30,6 @@ const BurgerIngredients = (props) => {
                 carbohydrates: data.carbohydrates
             }
         )
-        console.log(isIngredientsViews)
-        console.log(ingredient)   
     }
     
 
@@ -91,5 +90,9 @@ const BurgerIngredients = (props) => {
         
     )
 }
+
+BurgerIngredients.propTypes = {
+    data: PropTypes.arrayOf(menuItemPropTypes),
+};
 
 export default BurgerIngredients;
